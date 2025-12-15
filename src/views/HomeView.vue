@@ -1,9 +1,10 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+const name = 'Lucas'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <h1>Hello my name is {{ name }}</h1>
+    <p>This is my page with vue.</p>
   </main>
 </template>

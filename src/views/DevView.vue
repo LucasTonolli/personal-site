@@ -1,4 +1,5 @@
 <script setup>
+import DevContact from '../components/dev/DevContact.vue'
 import DevHeroSection from '../components/dev/DevHero.vue'
 import DevTechStack from '../components/dev/DevTech.vue'
 import DevTimelineSection from '../components/dev/DevTimeline.vue'
@@ -14,6 +15,7 @@ import NavBar from '../components/layout/NavBar.vue'
       <DevHeroSection />
       <DevTimelineSection />
       <DevTechStack />
+      <DevContact />
     </div>
   </main>
   <FooterBar />

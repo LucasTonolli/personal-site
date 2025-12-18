@@ -12,20 +12,22 @@
     </div>
 
     <h1 class="title">&lt; Modo <span class="highlight">Dev</span> &gt;</h1>
+
     <h2 class="subtitle">
       Minha jornada como desenvolvedor web, explorando tecnologias, superando desafios e criando
       soluções inovadoras.
     </h2>
+
     <div class="scroll-indicator">
       <span>&#8595;</span>
     </div>
+
     <div class="divider"></div>
   </section>
 </template>
 
 <style scoped>
 .section.dev-hero {
-  flex-direction: column !important;
   padding: 0 0 2rem 0;
   position: relative;
   min-height: auto;
@@ -33,18 +35,20 @@
 
 .hero-glow {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(255, 0, 122, 0.15) 0%, rgba(0, 0, 0, 0) 60%);
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 60%);
+  opacity: 0.15;
   pointer-events: none;
+  z-index: 0;
 }
 
 .terminal-badge {
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid #333;
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid var(--border-light);
   padding: 8px 16px;
   border-radius: 8px;
   display: flex;
@@ -53,6 +57,7 @@
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
+  z-index: 1;
 }
 
 .dot {
@@ -74,7 +79,7 @@
 .code-text {
   font-family: var(--font-code);
   font-size: 0.9rem;
-  color: #ccc;
+  color: var(--color-text-muted);
   margin-left: 5px;
 }
 
@@ -97,6 +102,7 @@
   color: var(--color-text-muted);
   font-size: 1.5rem;
   opacity: 0.6;
+  z-index: 1;
 }
 
 @keyframes bounce {
@@ -117,7 +123,7 @@
 
 .divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #333, transparent);
+  background: linear-gradient(90deg, transparent, var(--border-light), transparent);
   margin-top: 1rem;
   width: 100%;
 }
@@ -125,6 +131,10 @@
 @media (min-width: 768px) {
   .section.dev-hero {
     padding: 4rem 0 2rem 0;
+  }
+
+  .hero-glow {
+    top: 50%;
   }
 
   .subtitle {

@@ -51,7 +51,7 @@ const timelineEvents = [
             <span class="mobile-year">{{ event.year }}</span>
 
             <h4 class="role">{{ event.role }}</h4>
-            <span class="company">@{{ event.company }}</span>
+            <span class="company">@ {{ event.company }}</span>
           </div>
 
           <p class="description">
@@ -70,18 +70,23 @@ const timelineEvents = [
 <style scoped>
 .section.timeline-section {
   flex-direction: column;
+  padding-bottom: 4rem;
 }
 
 .timeline {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
 }
+
 .timeline-item {
   display: flex;
   gap: 1rem;
   position: relative;
 }
+
+/* --- DATA --- */
 .desktop-only {
   display: none;
 }
@@ -108,6 +113,7 @@ const timelineEvents = [
   font-size: 0.9rem;
 }
 
+/* --- MARCADOR --- */
 .timeline-marker {
   display: flex;
   flex-direction: column;
@@ -135,12 +141,14 @@ const timelineEvents = [
   min-height: 100%;
 }
 
+/* --- CARD CONTEÚDO --- */
 .timeline-content {
   flex: 1;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 1.2rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
 }
 
 .role {
@@ -156,16 +164,17 @@ const timelineEvents = [
   color: #888;
   margin-bottom: 0.8rem;
   font-style: italic;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .description {
   color: var(--color-text-muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  line-height: 1.6;
   margin-bottom: 1rem;
 }
 
+/* --- TAGS --- */
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -174,17 +183,18 @@ const timelineEvents = [
 
 .tech-tag {
   font-family: var(--font-code);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   background: rgba(0, 0, 0, 0.3);
   color: var(--color-secondary);
-  padding: 0.3rem 0.5rem;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 243, 255, 0.2);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-dim);
 }
 
+/* --- DESKTOP --- */
 @media (min-width: 768px) {
-  .section-title {
-    font-size: 1.8rem;
+  .section.timeline-section {
+    padding-bottom: 6rem;
   }
 
   .timeline-item {
@@ -193,7 +203,7 @@ const timelineEvents = [
 
   .desktop-only {
     display: block;
-    min-width: 175px;
+    min-width: 195px;
     text-align: right;
     padding-top: 2px;
   }
@@ -203,21 +213,15 @@ const timelineEvents = [
   }
 
   .year {
-    font-family: var(--font-code);
-    color: var(--color-primary);
-    font-weight: bold;
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
-  .timeline-content {
-    padding: 1.5rem;
-    transition: transform 0.3s ease;
-  }
-
+  /* Hover Effect no Desktop */
   .timeline-content:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(5px);
+    background: var(--color-bg-card-hover);
+    border-color: var(--border-light);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 
   .role {

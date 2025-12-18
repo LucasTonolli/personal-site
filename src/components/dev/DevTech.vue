@@ -3,15 +3,14 @@ const techCategories = [
   {
     name: 'Backend & Core',
     icon: '⚙️',
-    color: '#ff007a', // Rosa (Sua cor primária)
+    color: 'var(--color-primary)', // Rosa
     skills: ['Laravel', 'PHP 8+', 'SQL / MySQL', 'API Rest', 'WordPress Core', 'Livewire'],
   },
   {
     name: 'Frontend',
     icon: '🎨',
-    color: '#00f3ff', // Ciano (Sua cor secundária)
-    fontColor: '#000',
-
+    color: 'var(--color-secondary)', // Ciano
+    fontColor: '#000000', // Texto preto para contraste no fundo Ciano
     skills: [
       'Vue.js 3',
       'JavaScript (ES6+)',
@@ -24,7 +23,7 @@ const techCategories = [
   {
     name: 'DevOps & Tools',
     icon: '🛠️',
-    color: '#7000ff', // Roxo (Cor de acento)
+    color: 'var(--color-accent)', // Roxo
     skills: ['Linux / Shell', 'Git / GitHub', 'Docker', 'Apache/Nginx'],
   },
 ]
@@ -33,12 +32,16 @@ const techCategories = [
 <template>
   <section class="section tech-section">
     <h3 class="section-title"><span class="icon">🛠️</span> Stack Tecnológica</h3>
+
     <div class="tech-grid">
       <div
         v-for="(cat, index) in techCategories"
         :key="index"
         class="tech-card"
-        :style="{ '--card-color': cat.color, '--font-color': cat.fontColor || '#fff' }"
+        :style="{
+          '--card-color': cat.color,
+          '--pill-font-color': cat.fontColor || '#ffffff',
+        }"
       >
         <div class="card-header">
           <span class="cat-icon">{{ cat.icon }}</span>
@@ -57,7 +60,7 @@ const techCategories = [
 
 <style scoped>
 .tech-section {
-  padding: 2rem 0 4rem 0;
+  width: 100%;
 }
 
 .tech-grid {
@@ -67,9 +70,9 @@ const techCategories = [
 }
 
 .tech-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-md);
   padding: 1.5rem;
   transition: all 0.3s ease;
   position: relative;
@@ -77,6 +80,7 @@ const techCategories = [
 }
 
 .tech-card:hover {
+  background: var(--color-bg-card-hover);
   transform: translateY(-5px);
   border-color: var(--card-color);
   box-shadow:
@@ -111,29 +115,30 @@ const techCategories = [
 .skill-pill {
   font-family: var(--font-code);
   font-size: 0.85rem;
-  color: #ccc;
+  color: var(--color-text-muted);
   background: rgba(0, 0, 0, 0.3);
   padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid #333;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-dim);
   transition: 0.2s;
+}
+
+/* Interatividade das Pills */
+.tech-card:hover .skill-pill {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-text-main);
+}
+
+.tech-card:hover .skill-pill:hover {
+  background: var(--card-color);
+  color: var(--pill-font-color); /* Usa a cor dinâmica (preto ou branco) */
+  border-color: var(--card-color);
+  font-weight: 600;
 }
 
 @media (min-width: 768px) {
   .tech-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .tech-card:hover .skill-pill {
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-  }
-
-  .tech-card:hover .skill-pill:hover {
-    background: var(--card-color);
-    color: var(--font-color);
-    border-color: var(--card-color);
-    font-weight: bold;
   }
 }
 </style>

@@ -143,13 +143,20 @@ onMounted(() => {
 
       <div class="cta-group">
         <RouterLink to="/dev" class="btn-primary"> <span>💻</span> Modo Dev </RouterLink>
-        <RouterLink to="/otaku" class="btn-secondary"> <span>⛩️</span> Modo Otaku </RouterLink>
+        <RouterLink to="/otaku" class="btn-secondary" :style="{ display: 'none' }">
+          <span>⛩️</span> Modo Otaku
+        </RouterLink>
       </div>
     </div>
 
     <div class="hero-image">
       <div class="image-border">
-        <img src="/profile-pic.webp" alt="Foto de perfil" class="profile-pic" />
+        <img
+          src="/profile-pic.webp"
+          alt="Foto de perfil"
+          class="profile-pic"
+          fetchpriority="high"
+        />
       </div>
       <div class="status-badge">
         <span class="icon">☕</span>

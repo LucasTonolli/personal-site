@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <section class="hero">
+  <section class="section">
     <div class="badge-container"><span class="mode-badge">echo "Hello World!"</span></div>
     <h1 class="title">&lt; Modo <span class="highlight">Dev</span> &gt;</h1>
     <h2 class="subtitle">
@@ -13,8 +13,9 @@
 </template>
 
 <style scoped>
-.hero {
+.section {
   flex-direction: column !important;
+  min-height: 100vh;
 }
 .mode-badge {
   font-family: var(--font-code);

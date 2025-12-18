@@ -49,7 +49,7 @@ footer {
   padding: 2rem;
 }
 
-.hero {
+.section {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;

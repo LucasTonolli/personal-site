@@ -61,6 +61,74 @@ onMounted(() => {
         <span class="dynamic">{{ dynamicText }}</span>
         <span class="cursor">|</span>
       </div>
+      <div class="social-links">
+        <a
+          href="https://www.linkedin.com/in/lucas-tonolli/"
+          target="_blank"
+          class="social-btn linkedin"
+          title="LinkedIn"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+            ></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+
+        <a
+          href="https://x.com/Tonolli_Lucas"
+          target="_blank"
+          class="social-btn x-social"
+          title="X (Twitter)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+            />
+          </svg>
+        </a>
+
+        <a
+          href="https://www.instagram.com/lucas_tonolli97/"
+          target="_blank"
+          class="social-btn instagram"
+          title="Instagram"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+      </div>
       <div class="description">
         <p>
           Tenho <strong>{{ age() }} anos</strong> e sou estudante de
@@ -95,7 +163,7 @@ onMounted(() => {
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0;
+  padding: 0 0 2rem 0;
   gap: 2rem;
   text-align: center;
 }
@@ -149,6 +217,60 @@ onMounted(() => {
   }
 }
 
+.social-links {
+  display: flex;
+  gap: 1.5rem; /* Espaçamento entre ícones */
+  margin-bottom: 2rem;
+  justify-content: center; /* Centralizado no Mobile */
+}
+
+.social-btn {
+  color: var(--color-text-muted);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Efeitos de Hover Individuais */
+.social-btn:hover {
+  transform: translateY(-5px);
+  color: #fff;
+}
+
+/* LinkedIn (Azul) */
+.social-btn.linkedin:hover {
+  background: #0077b5;
+  border-color: #0077b5;
+  box-shadow: 0 0 15px rgba(0, 119, 181, 0.5);
+}
+
+/* X (Preto/Branco clássico) */
+.social-btn.x-social:hover {
+  background: #000;
+  border-color: #fff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Instagram (Gradiente) */
+.social-btn.instagram:hover {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  border-color: #d6249f;
+  box-shadow: 0 0 15px rgba(214, 36, 159, 0.5);
+}
+
 .description {
   color: #aaa;
   max-width: 100%;
@@ -189,11 +311,6 @@ onMounted(() => {
   background: var(--color-primary);
   color: #fff;
   box-shadow: 0 4px 15px rgba(255, 0, 122, 0.4);
-}
-
-.btn-primary span,
-.btn-secondary span {
-  background: transparent;
 }
 
 .btn-primary:hover {
@@ -270,10 +387,6 @@ onMounted(() => {
   animation: floatBadge 3s ease-in-out infinite;
 }
 
-.status-badge span {
-  background: transparent;
-}
-
 @keyframes floatBadge {
   0%,
   100% {
@@ -298,6 +411,10 @@ onMounted(() => {
 
   .dynamic-wrapper {
     font-size: 1.4rem;
+  }
+
+  .social-links {
+    justify-content: flex-start; /* Alinha à esquerda no PC */
   }
 
   .description {

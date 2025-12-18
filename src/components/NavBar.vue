@@ -4,10 +4,9 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <header class="navbar">
-    <div class="logo"><span class="tag">&lt;</span>Dev<span class="tag">/&gt;</span></div>
+    <div class="logo"><span class="tag">&lt;</span>Lucas<span class="tag">/&gt;</span></div>
     <nav>
       <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">Sobre</RouterLink>
       <RouterLink to="/contact">Contato</RouterLink>
     </nav>
   </header>

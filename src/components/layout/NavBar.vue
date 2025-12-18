@@ -8,8 +8,7 @@ defineProps(['title'])
   <header class="navbar">
     <div class="logo"><span class="tag">&lt;</span>{{ title }}<span class="tag">/&gt;</span></div>
     <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/contact">Contato</RouterLink>
+      <RouterLink to="/">Início</RouterLink>
     </nav>
   </header>
 </template>

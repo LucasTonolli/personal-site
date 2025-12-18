@@ -15,8 +15,8 @@ const phrases = [
   '👨‍💻 Fullstack Developer',
   '🎌 Otaku',
   '🎓 Universitário',
-  '⚽ Entusiasta de Esportes',
-  '☕ Movido a Café',
+  '⚽ Entusiasta de esportes',
+  '☕ Movido a café',
 ]
 let phraseIndex = 0
 let charIndex = 0

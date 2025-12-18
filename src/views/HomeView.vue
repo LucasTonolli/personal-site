@@ -8,3 +8,15 @@ const name = 'Lucas'
     <p>This is my page with vue.</p>
   </main>
 </template>
+
+<style scoped>
+.container {
+  text-align: center;
+  margin-top: 50px;
+  font-family: sans-serif;
+}
+
+h1 {
+  color: #42b983;
+}
+</style>

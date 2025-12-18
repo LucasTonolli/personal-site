@@ -1,17 +1,10 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import NavBar from './components/NavBar.vue'
-import FooterBar from './components/FooterBar.vue'
 </script>
 
 <template>
   <div class="app-layout">
-    <NavBar />
-
-    <main class="content-area">
-      <RouterView />
-    </main>
-    <FooterBar />
+    <RouterView />
   </div>
 </template>
 
@@ -29,10 +22,5 @@ import FooterBar from './components/FooterBar.vue'
   flex-direction: column;
   position: relative;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-}
-
-.content-area {
-  flex: 1;
-  padding: 2rem;
 }
 </style>

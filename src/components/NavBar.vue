@@ -1,10 +1,12 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+
+defineProps(['title'])
 </script>
 
 <template>
   <header class="navbar">
-    <div class="logo"><span class="tag">&lt;</span>Lucas<span class="tag">/&gt;</span></div>
+    <div class="logo"><span class="tag">&lt;</span>{{ title }}<span class="tag">/&gt;</span></div>
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/contact">Contato</RouterLink>

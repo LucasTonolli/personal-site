@@ -1,10 +1,11 @@
 <script setup>
-const name = 'Lucas'
+import HeroSection from '../components/HeroSection.vue'
 </script>
 
 <template>
-  <h1>Hello my name is {{ name }}</h1>
-  <p>This is my page with vue.</p>
+  <div class="home-container">
+    <HeroSection />
+  </div>
 </template>
 
 <style scoped>

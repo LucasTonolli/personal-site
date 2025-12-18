@@ -158,16 +158,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.hero {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0 2rem 0;
-  gap: 2rem;
-  text-align: center;
-}
-
 /* --- TEXTOS --- */
 .badge {
   display: inline-block;
@@ -178,20 +168,6 @@ onMounted(() => {
   color: var(--color-secondary);
   margin-bottom: 1rem;
   border: 1px solid rgba(0, 243, 255, 0.2);
-}
-
-.title {
-  font-size: 2.5rem;
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.highlight {
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .dynamic-wrapper {

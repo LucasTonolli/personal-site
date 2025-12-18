@@ -1,6 +1,6 @@
 <script setup>
 import FooterBar from '../components/layout/FooterBar.vue'
-import HeroSection from '../components/HeroSection.vue'
+import HomeHero from '../components/home/HomeHero.vue'
 import NavBar from '../components/layout/NavBar.vue'
 </script>
 
@@ -9,7 +9,7 @@ import NavBar from '../components/layout/NavBar.vue'
 
   <main class="content-area">
     <div class="home-container">
-      <HeroSection />
+      <HomeHero />
     </div>
   </main>
   <FooterBar />

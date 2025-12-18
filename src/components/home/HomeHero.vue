@@ -1,18 +1,15 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const age = () => {
-  const birthday = new Date('2002-01-13')
-  const today = new Date()
-
-  let age = today.getFullYear() - birthday.getFullYear()
-  const monthDiff = today.getMonth() - birthday.getMonth()
-
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) {
-    age--
-  }
-  return age
+const birthday = new Date('2002-01-13')
+const today = new Date()
+let ageVal = today.getFullYear() - birthday.getFullYear()
+const monthDiff = today.getMonth() - birthday.getMonth()
+if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) {
+  ageVal--
 }
+const currentAge = ageVal
+
 const dynamicText = ref('')
 const phrases = [
   '👨‍💻 Fullstack Developer',
@@ -21,37 +18,39 @@ const phrases = [
   '⚽ Entusiasta de Esportes',
   '☕ Movido a Café',
 ]
-let currentPhraseIndex = 0
+let phraseIndex = 0
 let charIndex = 0
 
-const writeText = () => {
-  if (charIndex < phrases[currentPhraseIndex].length) {
-    dynamicText.value += phrases[currentPhraseIndex].charAt(charIndex)
+const typeEffect = () => {
+  const currentPhrase = phrases[phraseIndex]
+
+  if (charIndex < currentPhrase.length) {
+    dynamicText.value += currentPhrase.charAt(charIndex)
     charIndex++
-    setTimeout(writeText, 100)
+    setTimeout(typeEffect, 100)
   } else {
-    setTimeout(eraseText, 2000)
+    setTimeout(eraseEffect, 2000)
   }
 }
 
-const eraseText = () => {
+const eraseEffect = () => {
   if (charIndex > 0) {
-    dynamicText.value = phrases[currentPhraseIndex].substring(0, charIndex - 1)
+    dynamicText.value = phrases[phraseIndex].substring(0, charIndex - 1)
     charIndex--
-    setTimeout(eraseText, 50)
+    setTimeout(eraseEffect, 50)
   } else {
-    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length
-    setTimeout(writeText, 500)
+    phraseIndex = (phraseIndex + 1) % phrases.length
+    setTimeout(typeEffect, 500)
   }
 }
 
 onMounted(() => {
-  writeText()
+  typeEffect()
 })
 </script>
 
 <template>
-  <section class="section base-hero">
+  <section class="section home-hero">
     <div class="hero-text">
       <div class="badge">Bem-vindo ao meu espaço</div>
 
@@ -61,6 +60,7 @@ onMounted(() => {
         <span class="dynamic">{{ dynamicText }}</span>
         <span class="cursor">|</span>
       </div>
+
       <div class="social-links">
         <a
           href="https://www.linkedin.com/in/lucas-tonolli/"
@@ -129,9 +129,10 @@ onMounted(() => {
           </svg>
         </a>
       </div>
+
       <div class="description">
         <p>
-          Tenho <strong>{{ age() }} anos</strong> e sou estudante de
+          Tenho <strong>{{ currentAge }} anos</strong> e sou estudante de
           <strong>Ciência da Computação.</strong>
         </p>
         <p>
@@ -139,6 +140,7 @@ onMounted(() => {
           lendo ou praticando esportes.
         </p>
       </div>
+
       <div class="cta-group">
         <RouterLink to="/dev" class="btn-primary"> <span>💻</span> Modo Dev </RouterLink>
         <RouterLink to="/otaku" class="btn-secondary"> <span>⛩️</span> Modo Otaku </RouterLink>
@@ -158,9 +160,13 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.section.base-hero {
-  flex-direction: column-reverse;
+.home-hero {
+  flex-direction: column-reverse; /* Imagem em cima, texto embaixo no mobile */
+  gap: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
 }
+
 /* --- TEXTOS --- */
 .badge {
   display: inline-block;
@@ -173,17 +179,27 @@ onMounted(() => {
   border: 1px solid rgba(0, 243, 255, 0.2);
 }
 
+/* Ajuste no título específico do Hero */
+.home-hero .title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
 .dynamic-wrapper {
   font-family: var(--font-code);
   font-size: 1.2rem;
   color: var(--color-text-muted);
   margin-bottom: 1.5rem;
   height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cursor {
   animation: blink 1s infinite;
   color: var(--color-primary);
+  margin-left: 2px;
 }
 
 @keyframes blink {
@@ -196,11 +212,25 @@ onMounted(() => {
   }
 }
 
+.description {
+  color: var(--color-text-muted);
+  max-width: 100%;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0 auto 2rem auto;
+}
+
+.description strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* --- SOCIAL & BOTÕES --- */
 .social-links {
   display: flex;
-  gap: 1.5rem; /* Espaçamento entre ícones */
+  gap: 1.5rem;
   margin-bottom: 2rem;
-  justify-content: center; /* Centralizado no Mobile */
+  justify-content: center;
 }
 
 .social-btn {
@@ -216,27 +246,20 @@ onMounted(() => {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Efeitos de Hover Individuais */
 .social-btn:hover {
   transform: translateY(-5px);
   color: #fff;
 }
-
-/* LinkedIn (Azul) */
 .social-btn.linkedin:hover {
   background: #0077b5;
   border-color: #0077b5;
   box-shadow: 0 0 15px rgba(0, 119, 181, 0.5);
 }
-
-/* X (Preto/Branco clássico) */
 .social-btn.x-social:hover {
   background: #000;
   border-color: #fff;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
-
-/* Instagram (Gradiente) */
 .social-btn.instagram:hover {
   background: radial-gradient(
     circle at 30% 107%,
@@ -250,20 +273,6 @@ onMounted(() => {
   box-shadow: 0 0 15px rgba(214, 36, 159, 0.5);
 }
 
-.description {
-  color: #aaa;
-  max-width: 100%;
-  font-size: 1rem;
-  line-height: 1.8;
-  margin: 0 auto 2rem auto;
-}
-
-.description strong {
-  color: #fff;
-  font-weight: 600;
-}
-
-/* --- BOTÕES --- */
 .cta-group {
   display: flex;
   flex-direction: column;
@@ -272,6 +281,7 @@ onMounted(() => {
   margin: 0 auto;
 }
 
+/* Botões específicos */
 .btn-primary,
 .btn-secondary {
   text-decoration: none;
@@ -291,7 +301,6 @@ onMounted(() => {
   color: #fff;
   box-shadow: 0 4px 15px rgba(255, 0, 122, 0.4);
 }
-
 .btn-primary:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(255, 0, 122, 0.6);
@@ -302,13 +311,13 @@ onMounted(() => {
   border: 1px solid var(--color-secondary);
   color: var(--color-secondary);
 }
-
 .btn-secondary:hover {
   background: rgba(0, 243, 255, 0.1);
   transform: translateY(-3px);
   box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
 }
 
+/* --- IMAGEM --- */
 .hero-image {
   position: relative;
   display: flex;
@@ -322,6 +331,7 @@ onMounted(() => {
   background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   animation: pulseBorder 4s infinite reverse;
+  padding: 4px; /* Garante que o gradiente apareça */
 }
 
 .profile-pic {
@@ -341,28 +351,22 @@ onMounted(() => {
   }
 }
 
-/* --- STATUS BADGE (Pílula) --- */
 .status-badge {
   position: absolute;
   bottom: 10px;
   right: 10px;
-
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-
   padding: 0.5rem 1rem;
   border-radius: 50px;
-
   display: flex;
   align-items: center;
   gap: 8px;
-
   color: #fff;
   font-family: var(--font-code);
   font-size: 0.85rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-
   animation: floatBadge 3s ease-in-out infinite;
 }
 
@@ -376,31 +380,32 @@ onMounted(() => {
   }
 }
 
+/* ESTILO DESKTOP (Telas maiores que 768px)
+*/
 @media (min-width: 768px) {
-  .section.base-hero {
-    flex-direction: row;
-  }
-  .hero {
+  .home-hero {
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
-    gap: 3rem;
+    min-height: 80vh;
   }
 
   .hero-text {
+    flex: 1;
     text-align: left;
-  }
-
-  .title {
-    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   .dynamic-wrapper {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    justify-content: flex-start;
   }
 
   .social-links {
-    justify-content: flex-start; /* Alinha à esquerda no PC */
+    justify-content: flex-start;
   }
 
   .description {
@@ -419,6 +424,12 @@ onMounted(() => {
   .btn-primary,
   .btn-secondary {
     width: auto;
+  }
+
+  .hero-image {
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
   }
 
   .image-border {

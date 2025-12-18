@@ -72,17 +72,6 @@ const timelineEvents = [
   flex-direction: column;
 }
 
-.section-title {
-  color: #fff;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 1rem;
-}
-
 .timeline {
   display: flex;
   flex-direction: column;

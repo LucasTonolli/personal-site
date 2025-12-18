@@ -51,7 +51,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="section">
+  <section class="section base-hero">
     <div class="hero-text">
       <div class="badge">Bem-vindo ao meu espaço</div>
 
@@ -158,6 +158,9 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.section.base-hero {
+  flex-direction: column-reverse;
+}
 /* --- TEXTOS --- */
 .badge {
   display: inline-block;
@@ -374,6 +377,9 @@ onMounted(() => {
 }
 
 @media (min-width: 768px) {
+  .section.base-hero {
+    flex-direction: row;
+  }
   .hero {
     flex-direction: row;
     justify-content: space-between;

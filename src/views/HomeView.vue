@@ -1,7 +1,7 @@
 <script setup>
-import FooterBar from '../components/FooterBar.vue'
+import FooterBar from '../components/layout/FooterBar.vue'
 import HeroSection from '../components/HeroSection.vue'
-import NavBar from '../components/NavBar.vue'
+import NavBar from '../components/layout/NavBar.vue'
 </script>
 
 <template>

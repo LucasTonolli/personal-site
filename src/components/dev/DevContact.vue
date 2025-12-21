@@ -14,7 +14,7 @@ const socialLinks = [
   },
   {
     name: 'E-mail',
-    url: 'mailto:lucastonolli973@gmail.com',
+    url: 'mailto:contato@lucas-tonolli.com.br',
     icon: '✉️',
   },
 ]

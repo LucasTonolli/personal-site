@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
 
 <template>
   <section class="section dev-hero">
@@ -11,11 +15,10 @@
       <span class="code-text">echo "Hello World!"</span>
     </div>
 
-    <h1 class="title">&lt; Modo <span class="highlight">Dev</span> &gt;</h1>
+    <h1 class="title" v-html="t('dev_mode.title')"></h1>
 
     <h2 class="subtitle">
-      Minha jornada como desenvolvedor web, explorando tecnologias, superando desafios e criando
-      soluções inovadoras.
+      {{ t('dev_mode.subtitle') }}
     </h2>
 
     <div class="scroll-indicator">

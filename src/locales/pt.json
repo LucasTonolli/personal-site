@@ -17,6 +17,10 @@
       "caffeine": "Cafeína"
     }
   },
+  "dev_mode": {
+    "title": "&lt; Modo <span class=\"highlight\">Dev</span> &gt;",
+    "subtitle": "Minha jornada como desenvolvedor web, explorando tecnologias, superando desafios e criando soluções inovadoras."
+  },
   "nav": {
     "home": "Início",
     "contact": "Contato"

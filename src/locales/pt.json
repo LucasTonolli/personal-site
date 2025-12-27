@@ -19,7 +19,38 @@
   },
   "dev_mode": {
     "title": "&lt; Modo <span class=\"highlight\">Dev</span> &gt;",
-    "subtitle": "Minha jornada como desenvolvedor web, explorando tecnologias, superando desafios e criando soluções inovadoras."
+    "subtitle": "Minha jornada como desenvolvedor web, explorando tecnologias, superando desafios e criando soluções inovadoras.",
+    "timeline": {
+      "title": "Minha jornada como desenvolvedor web",
+      "freelancer": {
+        "year": "2025 - Atual",
+        "role": "Freelancer Full-Stack",
+        "company": "Autônomo",
+        "desc": "Desenvolvimento de arquiteturas SaaS escaláveis e automação com IA. Criação do 'Zintbot' (WhatsApp + ChatGPT) e reestruturação de portais corporativos focada em performance e UX.",
+        "techs": ["Laravel", "Vue.js", "OpenAI API", "SaaS"]
+      },
+      "tech_lead": {
+        "year": "Jan 2023 - Jul 2024",
+        "role": "Tech Lead",
+        "company": "VVerner Desenvolvimento Web",
+        "desc": "Liderança técnica e mentoria de equipe. Arquitetei ecossistemas de e-commerce de alto tráfego (Avantgarde, Pitaya) e APIs Headless. Atuei como ponte estratégica entre requisitos de negócio e execução técnica.",
+        "techs": ["Liderança", "Arquitetura", "Headless CMS", "Integrações"]
+      },
+      "intern": {
+        "year": "Fev 2022 - Dez 2022",
+        "role": "Desenvolvedor Web (Estágio)",
+        "company": "VVerner Desenvolvimento Web",
+        "desc": "Construção de base sólida em desenvolvimento web. Criação de temas WordPress customizados, integração de APIs REST, fluxo de trabalho Git e gerenciamento de infraestrutura Linux/cPanel.",
+        "techs": ["PHP", "JavaScript", "WordPress", "Linux"]
+      },
+      "academic": {
+        "year": "2020",
+        "role": "Ciência da Computação",
+        "company": "Universidade Feevale",
+        "desc": "Bacharelado em andamento. Foco em engenharia de software, estruturas de dados complexas, algoritmos avançados e paradigmas de programação.",
+        "techs": ["Acadêmico", "C", "Java", "Lógica"]
+      }
+    }
   },
   "nav": {
     "home": "Início",

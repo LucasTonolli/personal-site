@@ -1,39 +1,45 @@
 <script setup>
-const timelineEvents = [
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t, tm, rt } = useI18n()
+
+console.log(tm('dev_mode.timeline.freelancer.techs'))
+const timelineEvents = computed(() => [
   {
-    year: '2025 - Atual',
-    role: 'Freelancer Full-Stack',
-    company: 'Autônomo',
-    desc: 'Desenvolvimento de soluções SaaS e automação com IA. Destaque para o projeto "Zintbot" (integração WhatsApp + ChatGPT) e redesign completo de portais corporativos focando em otimização de processos.',
-    techs: ['Laravel', 'Vue.js', 'OpenAI API', 'SaaS'],
+    year: t('dev_mode.timeline.freelancer.year'),
+    role: t('dev_mode.timeline.freelancer.role'),
+    company: t('dev_mode.timeline.freelancer.company'),
+    desc: t('dev_mode.timeline.freelancer.desc'),
+    techs: tm('dev_mode.timeline.freelancer.techs').map((tech) => rt(tech)),
   },
   {
-    year: 'Jan 2023 - Jul 2024',
-    role: 'Tech Lead',
-    company: 'VVerner Desenvolvimento Web',
-    desc: 'Liderança técnica da equipe. Atuei na arquitetura de e-commerce (Avantgarde College, Pitaya) e desenvolvimento de APIs Headless. Responsável pela ponte entre clientes e equipe técnica.',
-    techs: ['Liderança', 'Arquitetura', 'Headless CMS', 'Integrações'],
+    year: t('dev_mode.timeline.tech_lead.year'),
+    role: t('dev_mode.timeline.tech_lead.role'),
+    company: t('dev_mode.timeline.tech_lead.company'),
+    desc: t('dev_mode.timeline.tech_lead.desc'),
+    techs: tm('dev_mode.timeline.tech_lead.techs').map((tech) => rt(tech)),
   },
   {
-    year: 'Fev 2022 - Dez 2022',
-    role: 'Estagiário de Programação',
-    company: 'VVerner Desenvolvimento Web',
-    desc: 'Início da carreira profissional focada. Desenvolvimento de temas customizados para WordPress, manipulação de APIs REST, versionamento com Git e configuração de ambientes Linux/cPanel.',
-    techs: ['PHP', 'JavaScript', 'WordPress', 'Linux'],
+    year: t('dev_mode.timeline.intern.year'),
+    role: t('dev_mode.timeline.intern.role'),
+    company: t('dev_mode.timeline.intern.company'),
+    desc: t('dev_mode.timeline.intern.desc'),
+    techs: tm('dev_mode.timeline.intern.techs').map((tech) => rt(tech)),
   },
   {
-    year: '2020',
-    role: 'Ciência da Computação',
-    company: 'Universidade Feevale',
-    desc: 'Início da graduação. Base sólida em algoritmos, estrutura de dados e lógica de programação.',
-    techs: ['Acadêmico', 'C', 'Java', 'Lógica'],
+    year: t('dev_mode.timeline.academic.year'),
+    role: t('dev_mode.timeline.academic.role'),
+    company: t('dev_mode.timeline.academic.company'),
+    desc: t('dev_mode.timeline.academic.desc'),
+    techs: tm('dev_mode.timeline.academic.techs').map((tech) => rt(tech)),
   },
-]
+])
 </script>
 
 <template>
   <section class="section timeline-section">
-    <h3 class="section-title"><span class="icon">🚀</span> Carreira & XP</h3>
+    <h3 class="section-title"><span class="icon">🚀</span>{{ t('dev_mode.timeline.title') }}</h3>
 
     <div class="timeline">
       <div v-for="(event, index) in timelineEvents" :key="index" class="timeline-item">

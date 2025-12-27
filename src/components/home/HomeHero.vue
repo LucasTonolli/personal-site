@@ -50,7 +50,9 @@ const eraseEffect = () => {
 }
 
 onMounted(() => {
-  typeEffect()
+  setTimeout(() => {
+    requestAnimationFrame(typeEffect)
+  }, 500)
 })
 
 watch(locale, () => {
@@ -142,9 +144,13 @@ watch(locale, () => {
       <div class="image-border">
         <img
           src="/profile-pic.webp"
-          alt="Foto de perfil"
+          srcset="/profile-pic.webp 300w, /profile-pic.webp 600w"
+          sizes="(max-width: 768px) 250px, 350px"
+          alt="Foto de perfil de Lucas Vezaro Tonolli"
           class="profile-pic"
           fetchpriority="high"
+          width="600"
+          height="400"
         />
       </div>
       <div class="status-badge">
@@ -431,6 +437,42 @@ watch(locale, () => {
   .image-border {
     width: 350px;
     height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Remove o blur pesado do badge no mobile */
+  .status-badge {
+    backdrop-filter: none;
+    background: rgba(20, 20, 20, 0.9); /* Fundo sólido ou mais escuro */
+    animation: none; /* Remove a flutuação para economizar CPU */
+    bottom: 5px; /* Ajuste fixo */
+  }
+
+  /* Simplifica a sombra da borda da imagem */
+  .image-border {
+    animation: none; /* Remove o pulso */
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2); /* Sombra estática simples */
+  }
+
+  /* Remove sombras pesadas dos botões no estado normal */
+  .btn-primary {
+    box-shadow: none;
+  }
+
+  .status-badge {
+    backdrop-filter: none;
+    background: rgba(20, 20, 20, 0.9); /* Fundo sólido ou mais escuro */
+    animation: none; /* Remove a flutuação para economizar CPU */
+    bottom: 5px; /* Ajuste fixo */
+  }
+
+  .image-border {
+    animation: none; /* Remove o pulso */
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2); /* Sombra estática simples */
+  }
+  .btn-primary {
+    box-shadow: none;
   }
 }
 </style>

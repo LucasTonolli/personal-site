@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Home",
+    "contact": "Contato"
+  },
+  "hero": {
+    "greeting": "Olá, eu sou",
+    "role": "Desenvolvedor Full Stack",
+    "desc": "Tenho {age} anos e sou estudante de Ciência da Computação."
+  },
+  "buttons": {
+    "dev_mode": "Modo Dev",
+    "otaku_mode": "Modo Otaku"
+  }
+}

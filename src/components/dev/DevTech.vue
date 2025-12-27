@@ -1,4 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const techCategories = [
   {
     name: 'Backend & Core',
@@ -31,7 +35,7 @@ const techCategories = [
 
 <template>
   <section class="section tech-section">
-    <h3 class="section-title"><span class="icon">🛠️</span> Stack Tecnológica</h3>
+    <h3 class="section-title"><span class="icon">🛠️</span> {{ t('dev_mode.stack.title') }}</h3>
 
     <div class="tech-grid">
       <div

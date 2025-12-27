@@ -50,6 +50,9 @@
         "desc": "Bacharelado em andamento. Foco em engenharia de software, estruturas de dados complexas, algoritmos avançados e paradigmas de programação.",
         "techs": ["Acadêmico", "C", "Java", "Lógica"]
       }
+    },
+    "stack": {
+      "title": "Stack"
     }
   },
   "nav": {

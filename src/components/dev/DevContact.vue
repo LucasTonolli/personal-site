@@ -1,4 +1,6 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 const socialLinks = [
   {
     name: 'LinkedIn',
@@ -24,7 +26,9 @@ const socialLinks = [
   <section class="section links-section">
     <div class="links-grid">
       <div class="contact-card">
-        <h3 class="card-title"><span class="icon">📡</span> Canais de Contato</h3>
+        <h3 class="card-title">
+          <span class="icon">📡</span> {{ t('dev_mode.contact.channels') }}
+        </h3>
         <div class="contact-list">
           <a
             v-for="(link, index) in socialLinks"
@@ -47,13 +51,12 @@ const socialLinks = [
         <div class="portal-content">
           <div class="portal-header">
             <span class="status-dot blinking"></span>
-            <span class="status-text">Ambiente em Construção</span>
+            <span class="status-text">{{ t('dev_mode.contact.lab.under_construction') }}</span>
           </div>
 
-          <h3>Explore o Lab</h3>
+          <h3>{{ t('dev_mode.contact.lab.title') }}</h3>
           <p>
-            Acesse meu portifólio, onde eu apresento alguns dos projetos que desenvolvi e posto
-            sobre meus estudos.
+            {{ t('dev_mode.contact.lab.desc') }}
           </p>
 
           <a href="https://dev.lucas-tonolli.com.br" class="portal-btn disabled" target="_blank">

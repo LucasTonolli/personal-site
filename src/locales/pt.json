@@ -53,6 +53,15 @@
     },
     "stack": {
       "title": "Stack"
+    },
+    "contact": {
+      "channels": "Canais de contato",
+      "social_links": "Links sociais",
+      "lab": {
+        "under_construction": "Ambiente em construção",
+        "title": "Explore o meu site como dev",
+        "desc": "Acesse meu portifólio, onde eu apresento alguns dos projetos que desenvolvi e postosobre meus estudos."
+      }
     }
   },
   "nav": {

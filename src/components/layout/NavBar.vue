@@ -1,5 +1,9 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import LanguageSwitch from './LanguageSwitch.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 defineProps(['title'])
 </script>
@@ -7,8 +11,9 @@ defineProps(['title'])
 <template>
   <header class="navbar">
     <div class="logo"><span class="tag">&lt;</span>{{ title }}<span class="tag">/&gt;</span></div>
-    <nav>
-      <RouterLink to="/">Início</RouterLink>
+    <nav class="menu">
+      <RouterLink to="/">{{ t('nav.home') }}</RouterLink>
+      <LanguageSwitch />
     </nav>
   </header>
 </template>
@@ -48,5 +53,13 @@ nav a:hover,
 nav a.router-link-active {
   color: var(--color-secondary);
   text-shadow: 0 0 8px var(--color-secondary);
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
 }
 </style>

@@ -1,6 +1,8 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t, locale } = useI18n()
 const birthday = new Date('2002-01-13')
 const today = new Date()
 let ageVal = today.getFullYear() - birthday.getFullYear()
@@ -11,21 +13,22 @@ if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) 
 const currentAge = ageVal
 
 const dynamicText = ref('')
-const phrases = [
-  '👨‍💻 Fullstack Developer',
-  '🎌 Otaku',
-  '🎓 Universitário',
-  '⚽ Entusiasta de esportes',
-  '☕ Movido a café',
+const phrasesKeys = [
+  'home.hero.dinamycTexts.dev',
+  'home.hero.dinamycTexts.otaku',
+  'home.hero.dinamycTexts.student',
+  'home.hero.dinamycTexts.love_sports',
+  'home.hero.dinamycTexts.coffee',
 ]
 let phraseIndex = 0
 let charIndex = 0
 
 const typeEffect = () => {
-  const currentPhrase = phrases[phraseIndex]
+  const currentPhraseKey = phrasesKeys[phraseIndex]
+  const currentTranslation = t(currentPhraseKey)
 
-  if (charIndex < currentPhrase.length) {
-    dynamicText.value += currentPhrase.charAt(charIndex)
+  if (charIndex < currentTranslation.length) {
+    dynamicText.value += currentTranslation.charAt(charIndex)
     charIndex++
     setTimeout(typeEffect, 100)
   } else {
@@ -34,12 +37,14 @@ const typeEffect = () => {
 }
 
 const eraseEffect = () => {
+  const currentKey = phrasesKeys[phraseIndex]
+  const currentTranslationPharase = t(currentKey)
   if (charIndex > 0) {
-    dynamicText.value = phrases[phraseIndex].substring(0, charIndex - 1)
+    dynamicText.value = currentTranslationPharase.substring(0, charIndex - 1)
     charIndex--
     setTimeout(eraseEffect, 50)
   } else {
-    phraseIndex = (phraseIndex + 1) % phrases.length
+    phraseIndex = (phraseIndex + 1) % currentTranslationPharase.length
     setTimeout(typeEffect, 500)
   }
 }
@@ -47,14 +52,21 @@ const eraseEffect = () => {
 onMounted(() => {
   typeEffect()
 })
+
+watch(locale, () => {
+  dynamicText.value = ''
+  charIndex = 0
+})
 </script>
 
 <template>
   <section class="section home-hero">
     <div class="hero-text">
-      <div class="badge">Bem-vindo ao meu espaço</div>
+      <div class="badge">{{ t('home.hero.badge') }}</div>
 
-      <h1 class="title">Olá, eu sou <span class="highlight">Lucas Vezaro Tonolli</span></h1>
+      <h1 class="title">
+        {{ t('home.hero.greeting') }} <span class="highlight">Lucas Vezaro Tonolli</span>
+      </h1>
 
       <div class="dynamic-wrapper">
         <span class="dynamic">{{ dynamicText }}</span>
@@ -131,20 +143,16 @@ onMounted(() => {
       </div>
 
       <div class="description">
-        <p>
-          Tenho <strong>{{ currentAge }} anos</strong> e sou estudante de
-          <strong>Ciência da Computação.</strong>
-        </p>
-        <p>
-          Quando não estou desenvolvendo ou estudando, provavelmente estou assistindo algum anime,
-          lendo ou praticando esportes.
-        </p>
+        <p v-html="t('home.hero.desc.paragraph_one', { age: currentAge })"></p>
+        <p>{{ t('home.hero.desc.paragraph_two') }}</p>
       </div>
 
       <div class="cta-group">
-        <RouterLink to="/dev" class="btn-primary"> <span>💻</span> Modo Dev </RouterLink>
+        <RouterLink to="/dev" class="btn-primary">
+          <span>💻</span> {{ t('buttons.dev_mode') }}
+        </RouterLink>
         <RouterLink to="/otaku" class="btn-secondary" :style="{ display: 'none' }">
-          <span>⛩️</span> Modo Otaku
+          <span>⛩️</span> {{ t('buttons.otaku_mode') }}
         </RouterLink>
       </div>
     </div>
@@ -160,7 +168,7 @@ onMounted(() => {
       </div>
       <div class="status-badge">
         <span class="icon">☕</span>
-        <span>Cafeína: 85%</span>
+        <span>{{ t('home.hero.caffeine') }}: 85%</span>
       </div>
     </div>
   </section>

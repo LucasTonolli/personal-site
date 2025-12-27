@@ -1,12 +1,25 @@
 {
-  "nav": {
-    "home": "Home",
-    "contact": "Contato"
+  "home": {
+    "hero": {
+      "badge": "Bem-vindo ao meu espaço",
+      "greeting": "Olá, eu sou",
+      "dinamycTexts": {
+        "dev": "👨‍💻 Desenvolvedor Full Stack",
+        "otaku": " 🎌 Otaku",
+        "student": "🎓 Universitário - 6 semestre",
+        "love_sports": "⚽ Gosto de praticar esportes",
+        "coffee": "☕ Movido a café"
+      },
+      "desc": {
+        "paragraph_one": "Tenho <strong>{age} anos</strong> e sou estudante de <strong>Ciência da Computação.</strong>",
+        "paragraph_two": "Quando não estou desenvolvendo ou estudando, provavelmente estou assistindo algum anime, lendo ou praticando esportes."
+      },
+      "caffeine": "Cafeína"
+    }
   },
-  "hero": {
-    "greeting": "Olá, eu sou",
-    "role": "Desenvolvedor Full Stack",
-    "desc": "Tenho {age} anos e sou estudante de Ciência da Computação."
+  "nav": {
+    "home": "Início",
+    "contact": "Contato"
   },
   "buttons": {
     "dev_mode": "Modo Dev",

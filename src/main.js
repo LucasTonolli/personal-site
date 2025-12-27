@@ -7,9 +7,10 @@ import { createI18n } from 'vue-i18n'
 import pt from './locales/pt.json'
 import en from './locales/en.json'
 
+const userLang = localStorage.getItem('user-lang') || navigator.language.split('-')[0]
 const i18n = createI18n({
   legacy: false,
-  locale: 'pt',
+  locale: userLang === 'pt' ? 'pt' : 'en',
   fallbackLocale: 'en',
   messages: {
     pt,

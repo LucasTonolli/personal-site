@@ -11,7 +11,7 @@ const timelineEvents = [
     year: 'Jan 2023 - Jul 2024',
     role: 'Tech Lead',
     company: 'VVerner Desenvolvimento Web',
-    desc: 'Liderança técnica da equipe. Atuei na arquitetura de e-commerce (Avantgarde College, Pitaya) e desenvolvimento de APIs Headless (Terapize). Responsável pela ponte entre clientes e equipe técnica.',
+    desc: 'Liderança técnica da equipe. Atuei na arquitetura de e-commerce (Avantgarde College, Pitaya) e desenvolvimento de APIs Headless. Responsável pela ponte entre clientes e equipe técnica.',
     techs: ['Liderança', 'Arquitetura', 'Headless CMS', 'Integrações'],
   },
   {

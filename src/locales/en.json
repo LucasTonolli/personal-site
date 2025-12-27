@@ -1,12 +1,72 @@
 {
+  "home": {
+    "hero": {
+      "badge": "Welcome to my space",
+      "greeting": "Hello, I am",
+      "dinamycTexts": {
+        "dev": "👨‍💻 Full Stack Developer",
+        "otaku": " 🎌 Otaku",
+        "student": "🎓 University Student - 6th semester",
+        "love_sports": "⚽ I enjoy playing sports",
+        "coffee": "☕ Fueled by coffee"
+      },
+      "desc": {
+        "paragraph_one": "I am <strong>{age} years old</strong> and a <strong>Computer Science</strong> student.",
+        "paragraph_two": "When I'm not developing or studying, I'm probably watching anime, reading, or playing sports."
+      },
+      "caffeine": "Caffeine"
+    }
+  },
+  "dev_mode": {
+    "title": "&lt; <span class=\"highlight\">Dev</span> Mode &gt;",
+    "subtitle": "My journey as a web developer, exploring technologies, overcoming challenges, and creating innovative solutions.",
+    "timeline": {
+      "title": "My journey as a web developer",
+      "freelancer": {
+        "year": "2025 - Present",
+        "role": "Full-Stack Freelancer",
+        "company": "Self-employed",
+        "desc": "Development of scalable SaaS architectures and AI automation. Creation of 'Zintbot' (WhatsApp + ChatGPT) and restructuring of corporate portals focused on performance and UX.",
+        "techs": ["Laravel", "Vue.js", "OpenAI API", "SaaS"]
+      },
+      "tech_lead": {
+        "year": "Jan 2023 - Jul 2024",
+        "role": "Tech Lead",
+        "company": "VVerner Desenvolvimento Web",
+        "desc": "Technical leadership and team mentoring. Architected high-traffic e-commerce ecosystems (Avantgarde, Pitaya) and Headless APIs. Acted as a strategic bridge between business requirements and technical execution.",
+        "techs": ["Leadership", "Architecture", "Headless CMS", "Integrations"]
+      },
+      "intern": {
+        "year": "Feb 2022 - Dec 2022",
+        "role": "Web Developer (Intern)",
+        "company": "VVerner Desenvolvimento Web",
+        "desc": "Building a solid foundation in web development. Creation of custom WordPress themes, REST API integration, Git workflow, and Linux/cPanel infrastructure management.",
+        "techs": ["PHP", "JavaScript", "WordPress", "Linux"]
+      },
+      "academic": {
+        "year": "2020",
+        "role": "Computer Science",
+        "company": "Feevale University",
+        "desc": "Bachelor's degree in progress. Focus on software engineering, complex data structures, advanced algorithms, and programming paradigms.",
+        "techs": ["Academic", "C", "Java", "Logic"]
+      }
+    },
+    "stack": {
+      "title": "Stack"
+    },
+    "contact": {
+      "channels": "Contact channels",
+      "social_links": "Social links",
+      "lab": {
+        "under_construction": "Under construction",
+        "title": "Explore my site as a dev",
+        "desc": "Access my portfolio, where I showcase some of the projects I developed and post about my studies."
+      }
+    }
+  },
   "nav": {
     "home": "Home",
     "contact": "Contact"
-  },
-  "hero": {
-    "greeting": "Hi, I'm",
-    "role": "Full Stack Developer",
-    "desc": "I am {age} years old and a Computer Science student."
   },
   "buttons": {
     "dev_mode": "Dev Mode",

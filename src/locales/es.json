@@ -1,0 +1,75 @@
+{
+  "home": {
+    "hero": {
+      "badge": "Bienvenido a mi espacio",
+      "greeting": "Hola, soy",
+      "dinamycTexts": {
+        "dev": "👨‍💻 Desarrollador Full Stack",
+        "otaku": " 🎌 Otaku",
+        "student": "🎓 Universitario - 6.º semestre",
+        "love_sports": "⚽ Me gusta practicar deportes",
+        "coffee": "☕ Impulsado por café"
+      },
+      "desc": {
+        "paragraph_one": "Tengo <strong>{age} años</strong> y soy estudiante de <strong>Ciencias de la Computación.</strong>",
+        "paragraph_two": "Cuando no estoy desarrollando o estudiando, probablemente estoy viendo algún anime, leyendo o practicando deportes."
+      },
+      "caffeine": "Cafeína"
+    }
+  },
+  "dev_mode": {
+    "title": "&lt; Modo <span class=\"highlight\">Dev</span> &gt;",
+    "subtitle": "Mi trayectoria como desarrollador web, explorando tecnologías, superando desafíos y creando soluciones innovadoras.",
+    "timeline": {
+      "title": "Mi trayectoria como desarrollador web",
+      "freelancer": {
+        "year": "2025 - Actualidad",
+        "role": "Freelancer Full-Stack",
+        "company": "Autónomo",
+        "desc": "Desarrollo de arquitecturas SaaS escalables y automatización con IA. Creación del 'Zintbot' (WhatsApp + ChatGPT) y reestructuración de portales corporativos enfocada en rendimiento y UX.",
+        "techs": ["Laravel", "Vue.js", "OpenAI API", "SaaS"]
+      },
+      "tech_lead": {
+        "year": "Ene 2023 - Jul 2024",
+        "role": "Tech Lead",
+        "company": "VVerner Desenvolvimento Web",
+        "desc": "Liderazgo técnico y mentoría de equipo. Arquitecté ecosistemas de e-commerce de alto tráfico (Avantgarde, Pitaya) y APIs Headless. Actué como puente estratégico entre los requisitos de negocio y la ejecución técnica.",
+        "techs": ["Liderazgo", "Arquitectura", "Headless CMS", "Integraciones"]
+      },
+      "intern": {
+        "year": "Feb 2022 - Dic 2022",
+        "role": "Desarrollador Web (Pasantía)",
+        "company": "VVerner Desenvolvimento Web",
+        "desc": "Construcción de una base sólida en desarrollo web. Creación de temas de WordPress personalizados, integración de APIs REST, flujo de trabajo Git y gestión de infraestructura Linux/cPanel.",
+        "techs": ["PHP", "JavaScript", "WordPress", "Linux"]
+      },
+      "academic": {
+        "year": "2020",
+        "role": "Ciencias de la Computación",
+        "company": "Universidade Feevale",
+        "desc": "Licenciatura en curso. Enfoque en ingeniería de software, estructuras de datos complejas, algoritmos avanzados y paradigmas de programación.",
+        "techs": ["Académico", "C", "Java", "Lógica"]
+      }
+    },
+    "stack": {
+      "title": "Stack"
+    },
+    "contact": {
+      "channels": "Canales de contacto",
+      "social_links": "Redes sociales",
+      "lab": {
+        "under_construction": "Sitio en construcción",
+        "title": "Explora mi sitio como dev",
+        "desc": "Accede a mi portafolio, donde presento algunos de los proyectos que desarrollé y publico sobre mis estudios."
+      }
+    }
+  },
+  "nav": {
+    "home": "Inicio",
+    "contact": "Contacto"
+  },
+  "buttons": {
+    "dev_mode": "Modo Dev",
+    "otaku_mode": "Modo Otaku"
+  }
+}

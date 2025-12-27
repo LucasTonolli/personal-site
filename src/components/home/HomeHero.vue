@@ -160,10 +160,11 @@ watch(locale, () => {
     </div>
   </section>
 </template>
-
 <style scoped>
+/* --- ESTILOS BASE (MOBILE - Padrão Leve) --- */
 .home-hero {
-  flex-direction: column-reverse; /* Imagem em cima, texto embaixo no mobile */
+  display: flex;
+  flex-direction: column-reverse; /* Mobile: Imagem em cima, texto embaixo */
   gap: 3rem;
   padding-top: 2rem;
   padding-bottom: 4rem;
@@ -181,10 +182,10 @@ watch(locale, () => {
   border: 1px solid rgba(0, 243, 255, 0.2);
 }
 
-/* Ajuste no título específico do Hero */
 .home-hero .title {
-  font-size: 2.5rem;
+  font-size: 2rem; /* Mobile: Fonte um pouco menor */
   margin-bottom: 1rem;
+  text-align: center; /* Mobile: Centralizado */
 }
 
 .dynamic-wrapper {
@@ -195,7 +196,7 @@ watch(locale, () => {
   height: 30px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Mobile: Centralizado */
 }
 
 .cursor {
@@ -204,22 +205,13 @@ watch(locale, () => {
   margin-left: 2px;
 }
 
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
 .description {
   color: var(--color-text-muted);
   max-width: 100%;
   font-size: 1rem;
   line-height: 1.8;
   margin: 0 auto 2rem auto;
+  text-align: center; /* Mobile: Centralizado */
 }
 
 .description strong {
@@ -232,7 +224,7 @@ watch(locale, () => {
   display: flex;
   gap: 1.5rem;
   margin-bottom: 2rem;
-  justify-content: center;
+  justify-content: center; /* Mobile: Centralizado */
 }
 
 .social-btn {
@@ -252,6 +244,7 @@ watch(locale, () => {
   transform: translateY(-5px);
   color: #fff;
 }
+/* Efeitos de hover mantidos (só ativam se o usuário tiver mouse/touch preciso) */
 .social-btn.linkedin:hover {
   background: #0077b5;
   border-color: #0077b5;
@@ -283,7 +276,7 @@ watch(locale, () => {
   margin: 0 auto;
 }
 
-/* Botões específicos */
+/* Botões - Base Mobile (Sem sombras pesadas) */
 .btn-primary,
 .btn-secondary {
   text-decoration: none;
@@ -301,11 +294,8 @@ watch(locale, () => {
 .btn-primary {
   background: var(--color-primary);
   color: #fff;
-  box-shadow: 0 4px 15px rgba(255, 0, 122, 0.4);
-}
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 0, 122, 0.6);
+  /* Mobile: Sem sombra pesada para performance */
+  box-shadow: none;
 }
 
 .btn-secondary {
@@ -313,13 +303,8 @@ watch(locale, () => {
   border: 1px solid var(--color-secondary);
   color: var(--color-secondary);
 }
-.btn-secondary:hover {
-  background: rgba(0, 243, 255, 0.1);
-  transform: translateY(-3px);
-  box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
-}
 
-/* --- IMAGEM --- */
+/* --- IMAGEM (Mobile Otimizado) --- */
 .hero-image {
   position: relative;
   display: flex;
@@ -331,9 +316,11 @@ watch(locale, () => {
   height: 250px;
   border-radius: 50%;
   background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  animation: pulseBorder 4s infinite reverse;
-  padding: 4px; /* Garante que o gradiente apareça */
+  padding: 4px;
+
+  /* Mobile: Sombra estática e leve. SEM ANIMAÇÃO. */
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+  animation: none;
 }
 
 .profile-pic {
@@ -344,21 +331,16 @@ watch(locale, () => {
   background-color: #222;
 }
 
-@keyframes pulseBorder {
-  0% {
-    box-shadow: 0 0 20px rgba(255, 0, 122, 0.3);
-  }
-  100% {
-    box-shadow: 0 0 40px rgba(0, 243, 255, 0.3);
-  }
-}
-
 .status-badge {
   position: absolute;
-  bottom: 10px;
+  bottom: 5px; /* Ajuste fixo mobile */
   right: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+
+  /* Mobile: Fundo sólido, sem blur, sem animação */
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: none;
+  animation: none;
+
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0.5rem 1rem;
   border-radius: 50px;
@@ -369,9 +351,26 @@ watch(locale, () => {
   font-family: var(--font-code);
   font-size: 0.85rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  animation: floatBadge 3s ease-in-out infinite;
 }
 
+/* Keyframes (definições ficam aqui, mas só usadas no desktop) */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes pulseBorder {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 0, 122, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(0, 243, 255, 0.3);
+  }
+}
 @keyframes floatBadge {
   0%,
   100% {
@@ -382,14 +381,20 @@ watch(locale, () => {
   }
 }
 
-/* ESTILO DESKTOP (Telas maiores que 768px)
+/* --- DESKTOP (Min-Width 768px) ---
+   Aqui adicionamos a complexidade e layout horizontal
 */
 @media (min-width: 768px) {
   .home-hero {
-    flex-direction: row;
+    flex-direction: row; /* Vira linha */
     justify-content: space-between;
     text-align: left;
     min-height: 80vh;
+  }
+
+  .home-hero .title {
+    font-size: 3rem; /* Aumenta fonte */
+    text-align: left;
   }
 
   .hero-text {
@@ -398,7 +403,7 @@ watch(locale, () => {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start; /* Alinha tudo à esquerda */
   }
 
   .dynamic-wrapper {
@@ -414,6 +419,7 @@ watch(locale, () => {
     margin: 0 0 2.5rem 0;
     max-width: 550px;
     font-size: 1.1rem;
+    text-align: left;
   }
 
   .cta-group {
@@ -428,6 +434,21 @@ watch(locale, () => {
     width: auto;
   }
 
+  /* Ativando efeitos pesados só no Desktop */
+  .btn-primary {
+    box-shadow: 0 4px 15px rgba(255, 0, 122, 0.4);
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 0, 122, 0.6);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(0, 243, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+  }
+
   .hero-image {
     flex: 1;
     justify-content: flex-end;
@@ -437,42 +458,17 @@ watch(locale, () => {
   .image-border {
     width: 350px;
     height: 350px;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Remove o blur pesado do badge no mobile */
-  .status-badge {
-    backdrop-filter: none;
-    background: rgba(20, 20, 20, 0.9); /* Fundo sólido ou mais escuro */
-    animation: none; /* Remove a flutuação para economizar CPU */
-    bottom: 5px; /* Ajuste fixo */
-  }
-
-  /* Simplifica a sombra da borda da imagem */
-  .image-border {
-    animation: none; /* Remove o pulso */
-    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2); /* Sombra estática simples */
-  }
-
-  /* Remove sombras pesadas dos botões no estado normal */
-  .btn-primary {
-    box-shadow: none;
+    /* Ativa animação pesada */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    animation: pulseBorder 4s infinite reverse;
   }
 
   .status-badge {
-    backdrop-filter: none;
-    background: rgba(20, 20, 20, 0.9); /* Fundo sólido ou mais escuro */
-    animation: none; /* Remove a flutuação para economizar CPU */
-    bottom: 5px; /* Ajuste fixo */
-  }
-
-  .image-border {
-    animation: none; /* Remove o pulso */
-    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2); /* Sombra estática simples */
-  }
-  .btn-primary {
-    box-shadow: none;
+    bottom: 10px;
+    /* Ativa blur e animação */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    animation: floatBadge 3s ease-in-out infinite;
   }
 }
 </style>
